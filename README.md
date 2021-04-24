@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Challenge Frontend - React - Cards
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+To create a Single Page Application with React + Redux + redux-saga / redux-thunk.
 
-In the project directory, you can run:
+The challenge consists in a Single Page Application with a **list of `cards`**. The `cards` should be retrieved from a JSON
+remotely accessible from the Internet.
 
-### `yarn start`
+A sample JSON could be downloaded from [this URL](./server/cards.json).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You should load it in an asynchronously way. You could use any mechanism or third party lib to get the JSON, but it
+should be asynchronous.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The `card` model is the following:
 
-### `yarn test`
+```
+{
+  _id: string,
+  name: string,
+  imageUrl: string,
+  count: {
+    total: number
+  }
+}
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the cards page, the user could perform the following **actions**:
 
-### `yarn build`
+- Delete a card.
+- Editar a card.
+    - Just the name and the image URL should be editable. Both are required.
+    - You can't use any third party lib for the form handling.
+    - This action should go to another page. After going back to the list, if there was a filter applied, the
+    filter should still be applied.
+- Filter the cards by name.
+    - The filtered cards should be shown as the user is typing.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+It is not necessary to implement any server side logic for delete, edit or filter the `cards`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You should take into consideration the performance. Consider a hypothetical case with a million `cards` in the list,
+so you have to try to make it as optimal as possible.
 
-### `yarn eject`
+The website must be responsive with a minimum size of 360px.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+During the interview, both the usability of the interface and the technical implementation will be discussed.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Finally, you should **send events** to two external **analytics platforms** in order to track:
+- The user clicks on any button in the website. The event should be easily identify which button is clicked.
+- Number of `cards` the user has.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The external analytics platforms could be two different JavaScript files than expose an interface. So, you could
+just create two files (analytics1.js and analytics2.js) with the method defined below.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+function sendEvent(eventName: string, eventProperties: Object) {
+    console.log('analytics 1', { eventName, eventProperties });
+}
+```
 
-## Learn More
+The parameter eventProperties is optional.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To send the events you just have to use those methods by putting the event name you consider appropriate and the
+properties you want.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Bonus (optional)**:
+- Testing
+- Typescript
 
-### Code Splitting
+## Run the code
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Use `yarn install` to download all dependencies.
+2. Run `yarn server` to bring up a dummy server with the `cards.json` data as response.
+3. Run `yarn start` to bring up the development server. Open http://localhost:3000 to view in the browser.
+    - Run `yarn build` if you want to build a production bundle and check the performance with a static server.
+4. Run `yarn test` to launch all the tests made.
