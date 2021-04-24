@@ -1,4 +1,6 @@
-import './App.css';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import './App.scss';
 
 function App() {
   return (
@@ -8,4 +10,6 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(
+    connect()(App)
+);
