@@ -1,15 +1,24 @@
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Switch, Route} from 'react-router-dom';
+import Header from '../layout/Header/Header';
+import Home from '../../pages/Home/Home';
+import Cards from '../../pages/Cards/Cards';
+
 import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <p>Go!</p>
+    <div className="app">
+      <Header/>
+      <Switch>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route path="/cards">
+          <Cards/>
+        </Route>
+      </Switch>
     </div>
   );
 }
 
-export default withRouter(
-    connect()(App)
-);
+export default App;
