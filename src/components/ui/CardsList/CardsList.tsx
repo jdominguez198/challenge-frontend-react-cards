@@ -9,9 +9,15 @@ type CardsListProps = {
 };
 
 function CardsList({ cards, editCardHandler, deleteCardHandler }: CardsListProps) {
+  if (!cards || !cards.length || cards.length === 0) {
+    return (
+      <p>No cards</p>
+    );
+  }
+
   return (
     <div className="cards-list">
-      {cards.map(card =>
+      {cards.map((card: CardModel) =>
         <Card
           key={card.id}
           id={card.id}

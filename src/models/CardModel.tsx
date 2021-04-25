@@ -1,5 +1,5 @@
 type CardModel = {
-  id: number,
+  id: string,
   name: string,
   imgUrl: string,
   userCount: number

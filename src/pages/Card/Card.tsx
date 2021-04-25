@@ -6,40 +6,9 @@ import CardModel from '../../models/CardModel';
 import './Card.scss';
 
 function Card() {
-  const cards: CardModel[] = [
-    {
-      id: 1,
-      name: 'Card 01',
-      imgUrl: 'https://via.placeholder.com/600',
-      userCount: 100
-    },
-    {
-      id: 2,
-      name: 'Card 02',
-      imgUrl: 'https://via.placeholder.com/600',
-      userCount: 95
-    },
-    {
-      id: 3,
-      name: 'Card 03',
-      imgUrl: 'https://via.placeholder.com/600',
-      userCount: 84
-    },
-    {
-      id: 4,
-      name: 'Card 04',
-      imgUrl: 'https://via.placeholder.com/600',
-      userCount: 79
-    },
-    {
-      id: 5,
-      name: 'Card 05',
-      imgUrl: 'https://via.placeholder.com/600',
-      userCount: 43
-    }
-  ];
+  const cards: CardModel[] = [];
   const { id } = useParams<{ id: string }>();
-  const card = cards.find((card: CardModel) => card.id === parseInt(id));
+  const card = cards.find((card: CardModel) => card.id === id);
 
   return (
     <div className="page-card">

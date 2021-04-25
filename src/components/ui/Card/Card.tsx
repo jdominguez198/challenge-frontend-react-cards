@@ -5,7 +5,7 @@ import Icon from '../Icon/Icon';
 import './Card.scss';
 
 type CardProps = {
-  id: number,
+  id: string,
   name: string,
   imgUrl: string,
   total: number,
