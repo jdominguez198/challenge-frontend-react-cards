@@ -1,0 +1,39 @@
+@import 'src/assets/styles/mixins';
+
+.card {
+  @include flex-column;
+  margin: 0 0 20px 0;
+
+  &-wrapper {
+    @include flex-column;
+    border: 1px solid var(--color-midnightblue);
+    padding: var(--space-base);
+  }
+
+  &-image {
+    @include flex-column;
+    width: 100%;
+    min-height: 200px;
+    margin: 0 0 20px 0;
+  }
+
+  &-info {
+    @include flex-row;
+  }
+
+  &-description {
+    @include flex-column;
+    flex: 1 1 100%;
+  }
+
+  &-actions {
+    @include flex-row;
+
+    &-edit,
+    &-delete {
+      --icon-width: 20px;
+      --icon-height: 20px;
+      padding: 5px 10px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
+@import 'src/assets/styles/mixins';
+
 .page-home {
-  display: flex;
-  flex: 1 0 100%;
-  flex-direction: column;
+  @include flex-column;
   align-items: center;
 }

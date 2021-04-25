@@ -1,0 +1,21 @@
+@import 'src/assets/styles/mixins';
+
+.page-cards {
+  @include flex-column;
+
+  &-title {
+    @include flex-column;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  &-filters {
+    @include flex-column;
+  }
+
+  &-list {
+    @include flex-column;
+  }
+}

@@ -1,0 +1,18 @@
+@import 'src/assets/styles/mixins';
+
+.page-card {
+  @include flex-column;
+
+  &-title {
+    @include flex-column;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  &-editor {
+    @include flex-column;
+    padding: 0 15px;
+  }
+}

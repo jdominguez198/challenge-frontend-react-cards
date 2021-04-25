@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import './Header.scss';
 
 class Header extends Component<any, any> {
@@ -45,7 +46,6 @@ class Header extends Component<any, any> {
             </li>
             <li>
               <NavLink
-                exact
                 to="/cards"
                 activeClassName="header-navigation-item__active"
                 className="header-navigation-item">Cards</NavLink>

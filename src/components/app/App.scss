@@ -1,5 +1,6 @@
+@import 'src/assets/styles/mixins';
+
 .app {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   min-height: 100vh;
 }
