@@ -1,13 +1,13 @@
-import {useHistory, useParams} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCards } from '../../store/cards/actions';
 
 import CardEditor from '../../components/ui/CardEditor/CardEditor';
 import CardModel from '../../models/CardModel';
+import Button from '../../components/ui/Button/Button';
 
 import './Card.scss';
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {fetchCards} from "../../store/cards/actions";
-import Button from "../../components/ui/Button/Button";
 
 function Card() {
   const { id } = useParams<{ id: string }>();
