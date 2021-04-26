@@ -10,14 +10,14 @@ import Button from '../../components/ui/Button/Button';
 import './Card.scss';
 
 function Card() {
-  const { id } = useParams<{ id: string }>();
+  const { id: requestedCardId } = useParams<{ id: string }>();
   const { items, loading, filter } = useSelector((state: any) => state.cardState);
   const [ card, setCard ] = useState(null);
+  const [ cardTitle, setCardTitle ] = useState('Unknown Card');
   const dispatch = useDispatch();
   const history = useHistory();
 
   const cardModel = card as CardModel|null;
-  let cardTitle = 'Unknown Card';
 
   useEffect(() => {
     if (!items || !items.length || items.length === 0) {
@@ -26,11 +26,9 @@ function Card() {
   }, [dispatch, items]);
 
   useEffect(() => {
-    setCard(items.find((card: CardModel) => card.id === id));
-    if (cardModel) {
-      cardTitle = `Card ${cardModel.name}`;
-    }
-  }, [items, setCard, cardModel]);
+    setCard(items.find((card: CardModel) => card.id === requestedCardId));
+    cardModel && setCardTitle(`Card "${cardModel.name}"`);
+  }, [items, setCard, cardModel, requestedCardId]);
 
   const navigateToCardsList = () => {
     history.push({
