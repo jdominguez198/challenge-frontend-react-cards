@@ -21,8 +21,10 @@ function Cards() {
   const deleteCard = (cardId: string) => console.log('Action not implemented...', cardId);
 
   useEffect(() => {
-    dispatch(fetchCards());
-  }, [dispatch]);
+    if (!items || !items.length || items.length === 0) {
+      dispatch(fetchCards());
+    }
+  }, [dispatch, items]);
 
   useEffect(() => {
     if (items.length > 0) {

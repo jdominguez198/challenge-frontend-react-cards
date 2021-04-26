@@ -3,6 +3,12 @@
 .page-card {
   @include flex-column;
 
+  &-action {
+    @include flex-column;
+    align-items: flex-end;
+    padding: 10px 15px;
+  }
+
   &-title {
     @include flex-column;
 
@@ -14,5 +20,10 @@
   &-editor {
     @include flex-column;
     padding: 0 15px;
+  }
+
+  &__loading {
+    @include flex-column;
+    text-align: center;
   }
 }

@@ -23,7 +23,7 @@ function Button(props: any) {
   const classNames = [
     'button',
     ...shapeClassName(props.shape || 'link'),
-    ...props.className && [ props.className ]
+    ...(props.className && [ props.className ]) || []
   ];
 
   const clickHandler = (event: any) => {

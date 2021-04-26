@@ -46,19 +46,22 @@
 
   &-logo {
     @include flex-column;
-    justify-content: center;
     padding: 10px 0;
 
     &-text {
       font-size: 18px;
+      text-align: center;
       color: var(--color-primary);
     }
   }
 
   &-navigation {
     @include flex-column;
+    height: 100%;
+    max-height: var(--header-navigation-max-height, 0);
     background: var(--color-clouds);
-    //margin: -100% 0 0 0;
+    transition: max-height 0.2s ease-in-out;
+    overflow: hidden;
 
     ul {
       width: 100%;
@@ -82,7 +85,7 @@
     }
 
     &__open {
-
+      --header-navigation-max-height: 100px;
     }
   }
 }
