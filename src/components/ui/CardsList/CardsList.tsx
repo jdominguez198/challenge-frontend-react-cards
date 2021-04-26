@@ -11,7 +11,9 @@ type CardsListProps = {
 function CardsList({ cards, editCardHandler, deleteCardHandler }: CardsListProps) {
   if (!cards || !cards.length || cards.length === 0) {
     return (
-      <p>No cards</p>
+      <div className="cards-list__empty">
+        <p>No cards found!</p>
+      </div>
     );
   }
 

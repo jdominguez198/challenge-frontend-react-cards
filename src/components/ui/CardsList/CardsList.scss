@@ -1,5 +1,11 @@
+@import 'src/assets/styles/mixins';
+
 .cards-list {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   padding: 0 15px;
+
+  &__empty {
+    @include flex-column;
+    text-align: center;
+  }
 }

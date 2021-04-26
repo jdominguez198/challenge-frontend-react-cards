@@ -3,6 +3,11 @@
 .page-cards {
   @include flex-column;
 
+  &__loading {
+    @include flex-column;
+    text-align: center;
+  }
+
   &-title {
     @include flex-column;
 

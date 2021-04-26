@@ -1,4 +1,4 @@
-import {ActionCreator, Dispatch} from 'redux';
+import { ActionCreator, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import axios from 'axios';
 
@@ -6,7 +6,8 @@ import { ICardState } from '../reducers';
 import {
   ADD_CARDS_STARTED,
   ADD_CARDS_SUCCESS,
-  ADD_CARDS_FAILURE
+  ADD_CARDS_FAILURE,
+  SET_CARDS_FILTER
 } from './types';
 import CardModel from "../../../models/CardModel";
 
@@ -33,6 +34,11 @@ const fetchError = (error: any) => ({
   }
 });
 
+const setCardsFilter = (filter: string) => ({
+  type: SET_CARDS_FILTER,
+  payload: filter
+});
+
 export const fetchCards: ActionCreator<ThunkAction<Promise<any>, ICardState, null, ICardAction>> = () => {
   return async (dispatch: Dispatch) => {
     dispatch(fetchStarted());
@@ -56,5 +62,11 @@ export const fetchCards: ActionCreator<ThunkAction<Promise<any>, ICardState, nul
     } catch (error) {
       return dispatch(fetchError(error.message));
     }
+  };
+};
+
+export const setFilter: ActionCreator<ThunkAction<Promise<any>, ICardState, null, ICardAction>> = (filter: string) => {
+  return async (dispatch: Dispatch) => {
+    dispatch(setCardsFilter(filter));
   }
-}
+};
