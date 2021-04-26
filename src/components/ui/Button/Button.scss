@@ -24,6 +24,10 @@
     color: var(--button-text-color, var(--color-primary));
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &__squared {
     --button-border: 1px solid var(--button__squared-border-color, var(--color-primary));
 
@@ -31,7 +35,6 @@
       --button-text-color: var(--color-secondary);
       --button__squared-border-color: var(--color-primary);
       --button-background: var(--color-primary);
-      cursor: pointer;
 
       #{ $self }-left-icon,
       #{ $self }-right-icon {

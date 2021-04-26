@@ -1,7 +1,10 @@
 @import 'src/assets/styles/mixins';
+@import 'src/assets/styles/breakpoints';
 
 .card-editor {
   @include flex-column;
+  width: 100%;
+  align-self: center;
 
   &-form {
     @include flex-column;
@@ -25,8 +28,10 @@
       }
     }
   }
+}
 
-  &-action {
-
+@include for-desktop {
+  .card-editor {
+    max-width: var(--boxed-max-width);
   }
 }
