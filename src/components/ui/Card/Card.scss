@@ -2,7 +2,7 @@
 
 .card {
   @include flex-column;
-  margin: 0 0 20px 0;
+  margin: 0 0 var(--space-sm) 0;
 
   &-wrapper {
     @include flex-column;
@@ -14,7 +14,8 @@
     @include flex-column;
     width: 100%;
     min-height: 200px;
-    margin: 0 0 20px 0;
+    margin: 0 0 var(--space-sm) 0;
+    --image-min-height: 200px;
   }
 
   &-info {
@@ -33,7 +34,7 @@
     &-delete {
       --icon-width: 20px;
       --icon-height: 20px;
-      padding: 5px 10px;
+      padding: var(--space-xxs) var(--space-xs);
     }
   }
 }

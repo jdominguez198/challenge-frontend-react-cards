@@ -39,7 +39,10 @@ function ImageComponent({ src, alt, title}: ImageProps) {
       // @ts-ignore
       observer.observe(ref.current);
 
-      return () => observer.disconnect();
+      return () => {
+        setSrc('');
+        observer.disconnect();
+      }
     }
   }, [shouldLoad, setShouldLoad, ref, src, setSrc]);
 

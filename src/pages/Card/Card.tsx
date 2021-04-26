@@ -48,7 +48,9 @@ function Card() {
   return (
     <div className="page-card">
       <section className="page-card-action">
-        <Button shape="squared" onClick={() => navigateToCardsList()}>Back to Cards list</Button>
+        <Button shape="squared" onClick={() => navigateToCardsList()} lefticon="caret_left">
+          Back to Cards list
+        </Button>
       </section>
       <section className="page-card-title">
         <h1>{cardTitle}</h1>

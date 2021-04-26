@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 
+import Icon from '../Icon/Icon';
+
 import './Button.scss';
 
 function fireEvent (element: any, data: any) {
@@ -38,7 +40,9 @@ function Button(props: any) {
       className={classNames.join(' ')}
       onClick={clickHandler}
     >
-      {props.children}
+      {props.lefticon && <Icon className="button-left-icon" icon={props.lefticon}/>}
+      <span className="button-text">{props.children}</span>
+      {props.righticon && <Icon className="button-right-icon" icon={props.righticon}/>}
     </button>
   );
 }

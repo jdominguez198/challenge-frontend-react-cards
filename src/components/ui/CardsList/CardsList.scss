@@ -2,7 +2,7 @@
 
 .cards-list {
   @include flex-column;
-  padding: 0 15px;
+  padding: 0 var(--space-s);
 
   &__empty {
     @include flex-column;

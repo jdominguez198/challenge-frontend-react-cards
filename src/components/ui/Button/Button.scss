@@ -1,20 +1,42 @@
+@import 'src/assets/styles/mixins';
+
 .button {
-  color: var(--color-primary);
+  $self: &;
+  @include flex-row;
+  @include no-fill;
+  align-items: center;
+  justify-content: center;
   margin: 0;
-  padding: 5px 15px;
-  border: none;
-  border-radius: 0;
-  background: none;
+  padding: var(--space-xxs) var(--space-s);
+  border: var(--button-border, none);
+  border-radius: var(--button-border-radius, 0);
+  background: var(--button-background, none);
   appearance: none;
 
+  &-left-icon,
+  &-right-icon {
+    --icon-width: 20px;
+    --icon-height: 20px;
+    --icon-color: var(--button-icon-color, var(--color-primary));
+  }
+
+  &-text {
+    color: var(--button-text-color, var(--color-primary));
+  }
+
   &__squared {
-    border: 1px solid var(--color-primary);
+    --button-border: 1px solid var(--button__squared-border-color, var(--color-primary));
 
     &:hover {
-      color: var(--color-secondary);
-      border-color: var(--color-primary);
-      background: var(--color-primary);
+      --button-text-color: var(--color-secondary);
+      --button__squared-border-color: var(--color-primary);
+      --button-background: var(--color-primary);
       cursor: pointer;
+
+      #{ $self }-left-icon,
+      #{ $self }-right-icon {
+        --button-icon-color: var(--color-secondary);
+      }
     }
   }
 }

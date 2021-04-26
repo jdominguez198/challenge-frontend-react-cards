@@ -6,7 +6,7 @@
   &-action {
     @include flex-column;
     align-items: flex-end;
-    padding: 10px 15px;
+    padding: var(--space-xs) var(--space-s);
   }
 
   &-title {
@@ -19,7 +19,7 @@
 
   &-editor {
     @include flex-column;
-    padding: 0 15px;
+    padding: 0 var(--space-s);
   }
 
   &__loading {

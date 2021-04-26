@@ -66,6 +66,11 @@ function Filter() {
     dispatch(setFilter(event.target.value));
   };
 
+  const clearFilterHandler = (event: any) => {
+    setHasChanged(true);
+    dispatch(setFilter(''));
+  }
+
   return (
     <div className="filter">
       <div className="filter-wrapper">
@@ -76,9 +81,10 @@ function Filter() {
           value={filter}
           onChange={searchHandler}
         />
-        <Button onClick={() => console.log('filter click')} className="filter-button">
-          <Icon className="filter-button-icon" icon="search"/>
-        </Button>
+        {filter !== '' &&
+          <Button onClick={clearFilterHandler} className="filter-button">
+            <Icon className="filter-button-icon" icon="times"/>
+          </Button>}
       </div>
     </div>
   );

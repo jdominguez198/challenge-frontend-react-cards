@@ -1,30 +1,30 @@
+@import 'src/assets/styles/mixins';
+
 .filter {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
 
   &-wrapper {
-    display: flex;
-    flex-direction: row;
-    padding: 0 15px;
-    margin: 0 0 20px 0;
+    @include flex-row;
+    padding: 0 var(--space-s);
+    margin: 0 0 var(--space-sm) 0;
   }
 
   &-input {
-    display: flex;
+    @include flex-row;
     flex: 1 1 100%;
     background: none;
     border: 1px solid var(--color-primary);
     border-radius: 0;
-    box-shadow: none;
-    text-shadow: none;
-    padding: 0 10px;
+    line-height: var(--size-l);
+    padding: var(--space-xs) var(--space-xs);
+    @include no-shadow;
   }
 
   &-button {
+    @include flex-row;
     width: 40px;
-    display: flex;
     align-items: center;
-    padding: 10px 10px;
+    padding: var(--space-xs) var(--space-xs);
     border: 1px solid var(--color-primary);
     border-radius: 0;
     background: var(--color-black);

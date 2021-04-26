@@ -5,23 +5,22 @@
 
   &-form {
     @include flex-column;
-    margin: 0 0 20px 0;
+    margin: 0 0 var(--space-sm) 0;
 
     .form-group {
       @include flex-column;
-      margin: 0 0 10px 0;
+      margin: 0 0 var(--space-xs) 0;
 
       &-input {
         border: 1px solid var(--color-black);
         border-radius: 0;
-        box-shadow: none;
-        text-shadow: none;
-        padding: 5px 10px;
+        padding: var(--space-xxs) var(--space-xs);
+        @include no-shadow;
       }
 
       &-error {
-        font-size: 12px;
-        padding: 5px 0;
+        font-size: var(--size-s);
+        padding: var(--space-xxs) 0;
         color: var(--color-alizarin);
       }
     }

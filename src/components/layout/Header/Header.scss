@@ -5,10 +5,9 @@
 
   &-main {
     display: grid;
-    //width: 100%;
     grid-template-columns: 50px auto 50px;
     grid-auto-rows: auto;
-    grid-gap: 10px;
+    grid-gap: var(--space-xs);
     background: var(--color-gray);
     z-index: 2;
   }
@@ -24,9 +23,9 @@
         display: block;
         height: 2px;
         width: 20px;
-        margin: 5px 0;
+        margin: var(--space-xxs) 0;
         background: var(--color-primary);
-        transition: all 0.2s ease-in-out;
+        @include transition-easy;
       }
     }
 
@@ -46,10 +45,10 @@
 
   &-logo {
     @include flex-column;
-    padding: 10px 0;
+    padding: var(--space-xs) 0;
 
     &-text {
-      font-size: 18px;
+      font-size: var(--size-l);
       text-align: center;
       color: var(--color-primary);
     }
@@ -60,7 +59,7 @@
     height: 100%;
     max-height: var(--header-navigation-max-height, 0);
     background: var(--color-clouds);
-    transition: max-height 0.2s ease-in-out;
+    @include transition-easy(max-height);
     overflow: hidden;
 
     ul {

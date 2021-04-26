@@ -7,3 +7,23 @@
   display: flex;
   flex-direction: column;
 }
+
+@mixin no-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin no-fill {
+  border: none;
+  border-radius: 0;
+  background: none;
+}
+
+@mixin no-shadow {
+  box-shadow: none;
+  text-shadow: none;
+}
+
+@mixin transition-easy($property: all, $time: 0.2s) {
+  transition: $property $time ease-in-out;
+}
