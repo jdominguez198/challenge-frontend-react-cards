@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CardModel from '../../../models/CardModel';
 
 import Button from '../Button/Button';
-import validateField from '../../../utils/validations';
+import Input from '../Input/Input';
 
 import './CardEditor.scss';
 
@@ -44,28 +44,24 @@ function CardEditor({ card }: CardEditorProps) {
         autoComplete="off"
       >
         <div className="form-group">
-          <input
+          <Input
             className="form-group-input"
             type="text"
             placeholder="Type a Card name"
             value={name}
-            onChange={(event) => setName(event.target.value)}
+            onChange={(event: any) => setName(event.target.value)}
+            validations={fieldValidations.name}
           />
-          {fieldValidations.name.map((validation, index) =>
-            !validateField(name, [ validation.type ]) &&
-            <span key={`${validation.type}-${index}`} className="form-group-error">{validation.error}</span>)}
         </div>
         <div className="form-group">
-          <input
+          <Input
             className="form-group-input"
             type="url"
             placeholder="Type a Image url"
             value={imgUrl}
-            onChange={(event) => setImgUrl(event.target.value)}
+            onChange={(event: any) => setImgUrl(event.target.value)}
+            validations={fieldValidations.imgUrl}
           />
-          {fieldValidations.imgUrl.map((validation, index) =>
-            !validateField(imgUrl, [ validation.type ]) &&
-            <span key={`${validation.type}-${index}`} className="form-group-error">{validation.error}</span>)}
         </div>
       </form>
       <Button className="card-editor-action" shape="squared" onClick={submitHandler}>Save</Button>
