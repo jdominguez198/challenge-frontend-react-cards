@@ -6,7 +6,7 @@ import configureStore from './store/store';
 
 import './assets/styles/index.scss';
 import App from './components/app/App';
-import reportWebVitals from './utils/reportWebVitals';
+import reportWebVitals from './reportWebVitals';
 
 const store = configureStore();
 
