@@ -42,10 +42,11 @@ const setCardsFilter = (filter: string) => ({
 export const fetchCards: ActionCreator<ThunkAction<Promise<any>, ICardState, null, ICardAction>> = () => {
   return async (dispatch: Dispatch) => {
     dispatch(fetchStarted());
+    const listUrl = `${process.env.REACT_APP_API_URL}/cards`;
 
     try {
       const response = await axios
-        .get('http://localhost:8800/cards')
+        .get(listUrl)
       ;
 
       if (!response.data || !response.data.length) {
