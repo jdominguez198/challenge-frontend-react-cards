@@ -74,5 +74,5 @@ properties you want.
 2. Run `yarn server` to bring up a dummy server with the `cards.json` data as response.
 3. Run `yarn start` to bring up the development server. Open http://localhost:3000 to view in the browser.
     - Run `yarn build` if you want to build a production bundle and check the performance with a static server.
-    - Run `yarn server` after the build is done to serve it under http://localhost:5000
+    - Run `yarn serve` after the build is done to serve it under http://localhost:5000
 4. Run `yarn test` to launch all the tests made.
