@@ -1,4 +1,5 @@
 @import 'src/assets/styles/mixins';
+@import 'src/assets/styles/breakpoints';
 
 .page-cards {
   @include flex-column;
@@ -22,5 +23,13 @@
 
   &-list {
     @include flex-column;
+  }
+}
+
+@include for-tablet {
+  .page-cards {
+    &-list {
+      overflow-x: hidden;
+    }
   }
 }

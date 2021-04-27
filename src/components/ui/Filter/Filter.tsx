@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { setFilter } from '../../../store/cards/actions';
@@ -5,7 +6,6 @@ import { setFilter } from '../../../store/cards/actions';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import './Filter.scss';
-import {useEffect, useState} from "react";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
